@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千代原研究室 - Computer Vision and Image Processing</title>
+    <title>张研究室(千代原研究室) - Computer Vision and Image Processing</title>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -82,15 +82,21 @@
         /* 名言警句排版 (Zeng Guofan Quote) */
         .quote-box {
             background-color: #fdfbf7; border-left: 6px solid #d35400;
-            padding: 20px 30px; margin: 25px 0; font-style: italic;
+            padding: 25px 30px; margin: 25px 0;
             position: relative; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 0 8px 8px 0;
         }
         .quote-box::before {
             content: "“"; font-size: 4rem; color: #e67e22; position: absolute;
             left: 10px; top: -10px; opacity: 0.3; font-family: Georgia, serif;
         }
-        .quote-text { font-size: 1.3rem; color: #444; margin-bottom: 10px; font-weight: 500;}
-        .quote-author { text-align: right; color: #7f8c8d; font-weight: bold; }
+        .quote-text { font-size: 1.4rem; color: #333; margin-bottom: 15px; font-weight: 600; font-style: italic;}
+        
+        /* 新增：双语原文展示区 */
+        .quote-translation {
+            background: rgba(230, 126, 34, 0.08); padding: 15px; border-radius: 6px;
+            font-size: 1.05rem; color: #444; margin-bottom: 15px; line-height: 1.8;
+        }
+        .quote-author { text-align: right; color: #7f8c8d; font-weight: bold; margin-top: 10px;}
 
         ul, ol { padding-left: 1.5rem; }
         .highlight { color: var(--secondary-color); font-weight: bold; }
@@ -108,7 +114,7 @@
             <span class="ja">中文版</span><span class="zh">日本語</span>
         </button>
         <h1>
-            <span class="ja">千代原研究室 (Zlab)</span>
+            <span class="ja">千代原研究室 (張研究室)</span>
             <span class="zh">张研究室 (视觉研究室)</span>
         </h1>
         <p class="subtitle">Computer Vision and Image Processing</p>
@@ -137,11 +143,27 @@
             
             <!-- 曾国藩名言区块 -->
             <div class="quote-box">
+                <!-- 大字引言 -->
                 <div class="quote-text">
-                    <span class="ja">「莫問収穫、但問耕耘」<br>（成果ばかりを気にせず、ただひたむきに努力せよ）</span>
+                    <span class="ja">「莫問収穫、但問耕耘」</span>
                     <span class="zh">“莫问收获，但问耕耘。”</span>
                 </div>
+                
+                <!-- 新增：中日双语对照区 -->
+                <div class="quote-translation">
+                    <span class="ja">
+                        <strong>【原文】</strong> 莫问收获，但问耕耘。<br>
+                        <strong>【和訳】</strong> 成果ばかりを気にせず、ただひたむきに努力せよ。
+                    </span>
+                    <span class="zh">
+                        <strong>【中文原文】</strong> 莫问收获，但问耕耘。<br>
+                        <strong>【日文意译】</strong> 成果ばかりを気にせず、ただひたむきに努力せよ。
+                    </span>
+                </div>
+
                 <div class="quote-author">—— <span class="ja">曽国藩 (Zeng Guofan)</span><span class="zh">曾国藩</span></div>
+                
+                <!-- 精神解读 -->
                 <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">
                     <span class="ja">当研究室の精神であり、研究活動において学生たちを大いに啓発する言葉です。日々の地道なプログラミングや実験（耕耘）こそが、最終的な革新（収穫）をもたらします。</span>
                     <span class="zh">这是本研究室的指导精神。在学术探索中，脚踏实地进行每一次编程与实验（耕耘），不急功近利，最终必然会迎来丰硕的学术创新与成果（收获）。</span>
@@ -159,7 +181,6 @@
             <h2><span class="ja">研究関係 (Research Areas)</span><span class="zh">研究领域 (Research Areas)</span></h2>
             <div class="research-grid">
                 
-                <!-- 1. 视听心理 -->
                 <div class="research-card">
                     <img src="./images/eye-tracking.jpg" alt="Eye Tracking">
                     <div class="card-content">
@@ -168,7 +189,6 @@
                     </div>
                 </div>
 
-                <!-- 2. 医疗图像 -->
                 <div class="research-card">
                     <img src="./images/medical-brain.jpg" alt="Medical Image">
                     <div class="card-content">
@@ -177,7 +197,6 @@
                     </div>
                 </div>
 
-                <!-- 3. 机器狗/传感器 -->
                 <div class="research-card">
                     <img src="./images/robot-dog.jpg" alt="Robot Dog">
                     <div class="card-content">
@@ -186,7 +205,6 @@
                     </div>
                 </div>
 
-                <!-- 4. 交通监控 -->
                 <div class="research-card">
                     <img src="./images/traffic.jpg" alt="Traffic Monitoring">
                     <div class="card-content">
@@ -195,7 +213,6 @@
                     </div>
                 </div>
 
-                <!-- 5. VR/MR -->
                 <div class="research-card">
                     <img src="./images/hololens.jpg" alt="HoloLens VR">
                     <div class="card-content">
@@ -204,7 +221,6 @@
                     </div>
                 </div>
                 
-                <!-- 6. 电子水印 -->
                 <div class="research-card">
                     <img src="./images/watermark.jpg" alt="Watermark">
                     <div class="card-content">
