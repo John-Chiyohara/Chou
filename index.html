@@ -91,12 +91,20 @@
         }
         .quote-text { font-size: 1.4rem; color: #333; margin-bottom: 15px; font-weight: 600; font-style: italic;}
         
-        /* 新增：双语原文展示区 */
+        /* 双语原文展示区 */
         .quote-translation {
             background: rgba(230, 126, 34, 0.08); padding: 15px; border-radius: 6px;
             font-size: 1.05rem; color: #444; margin-bottom: 15px; line-height: 1.8;
         }
         .quote-author { text-align: right; color: #7f8c8d; font-weight: bold; margin-top: 10px;}
+
+        /* 教授简介卡片 */
+        .prof-card {
+            background: #fdfdfd; border: 1px solid #eaeaea; border-left: 5px solid var(--primary-color);
+            padding: 20px 25px; border-radius: 6px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); margin-top: 20px;
+        }
+        .prof-card p { margin: 8px 0; }
+        .prof-contact { background: #f4f7f6; padding: 15px; border-radius: 5px; margin-top: 15px; }
 
         ul, ol { padding-left: 1.5rem; }
         .highlight { color: var(--secondary-color); font-weight: bold; }
@@ -114,18 +122,20 @@
             <span class="ja">中文版</span><span class="zh">日本語</span>
         </button>
         <h1>
-            <span class="ja">千代原研究室 (ビジョン研究室)</span>
+            <span class="ja">千代原研究室 (張研究室)</span>
             <span class="zh">张研究室 (视觉研究室)</span>
         </h1>
         <p class="subtitle">Computer Vision and Image Processing</p>
         <p class="catchphrase">
-            <span class="ja">「何を見ているか(what)？どうしてこう見えているか(why)？どうやって見るか(How)？」<br>Welcome to vision lab: Boys be ambitious</span>
+            <span class="ja">「何を見ているか？どうしてこう見えているか？どうやって見るか？」<br>Welcome to vision lab: Boys be ambitious</span>
             <span class="zh">“我们在看什么(What)？为什么这样看(Why)？如何看(How)？”<br>Welcome to vision lab: Boys be ambitious</span>
         </p>
     </header>
 
     <nav>
-        <a href="#about"><span class="ja">研究室紹介・精神</span><span class="zh">研究室简介与精神</span></a>
+        <a href="#about"><span class="ja">研究室・精神</span><span class="zh">研究室与精神</span></a>
+        <!-- 新增教授简介锚点 -->
+        <a href="#professor"><span class="ja">指導教員紹介</span><span class="zh">教授简介</span></a>
         <a href="#research"><span class="ja">研究関係</span><span class="zh">研究领域</span></a>
         <a href="#education"><span class="ja">授業関係</span><span class="zh">课程相关</span></a>
         <a href="#faq"><span class="ja">Q&A</span><span class="zh">Q&A</span></a>
@@ -141,42 +151,64 @@
                 <span class="zh">基于人类视觉识别机制，利用计算机视觉技术，开发辅助人类视觉活动的应用程序。</span>
             </p>
             
-            <!-- 曾国藩名言区块 -->
+            <!-- 曾国藩名言区块 (已根据最新来源更新为长版) -->
             <div class="quote-box">
-                <!-- 大字引言 -->
                 <div class="quote-text">
                     <span class="ja">「志を持て、見識を持て、継続力を持て」</span>
                     <span class="zh">“有志，有识，有恒。”</span>
                 </div>
                 
-                <!-- 新增：中日双语对照区 -->
                 <div class="quote-translation">
                     <span class="ja">
-                        <strong>【原文】</strong> 盖世人读书，第一要有志，第二要有识，第三要有恒．有志则断不甘为下流；有识则知学问无尽，不敢以一得自足，如河伯之观海，如井蛙之窥天，皆无识者也；有恒财断无不成之事。此三者缺一不可。<br>
-                        <strong>【和訳】</strong> 学問をするためには、第一に意志を持ち、第二に知識を持ち、第三に執念を持つことが必要である。 意志があれば、劣ることを厭わず、知識があれば、学問に終わりはないことを知り、川船が海を見るように、井蛙が空を覗くように、すべて知識がなくても、あえて一つの利益で満足せず、執念があれば、何事も成し遂げられないことはないでしょう。 この3つのうち、1つは欠かせない。。
+                        <strong>【原文】</strong> 盖世人读书，第一要有志，第二要有识，第三要有恒。有志则断不甘为下流；有识则知学问无尽，不敢以一得自足，如河伯之观海，如井蛙之窥天，皆无识者也；有恒则断无不成之事。此三者缺一不可。<br><br>
+                        <strong>【和訳】</strong> 学問をするためには、第一に意志を持ち、第二に知識を持ち、第三に執念を持つことが必要である。意志があれば、劣ることを厭わず、知識があれば、学問に終わりはないことを知り、川船が海を見るように、井蛙が空を覗くように、すべて知識がなくても、あえて一つの利益で満足せず、執念があれば、何事も成し遂げられないことはないでしょう。この3つのうち、1つは欠かせない。
                     </span>
                     <span class="zh">
-                        <strong>【中文原文】</strong> 盖世人读书，第一要有志，第二要有识，第三要有恒．有志则断不甘为下流；有识则知学问无尽，不敢以一得自足，如河伯之观海，如井蛙之窥天，皆无识者也；有恒财断无不成之事。此三者缺一不可。<br>
-                        <strong>【日文意译】</strong> 学問をするためには、第一に意志を持ち、第二に知識を持ち、第三に執念を持つことが必要である。 意志があれば、劣ることを厭わず、知識があれば、学問に終わりはないことを知り、川船が海を見るように、井蛙が空を覗くように、すべて知識がなくても、あえて一つの利益で満足せず、執念があれば、何事も成し遂げられないことはないでしょう。 この3つのうち、1つは欠かせない。。
+                        <strong>【中文原文】</strong> 盖世人读书，第一要有志，第二要有识，第三要有恒。有志则断不甘为下流；有识则知学问无尽，不敢以一得自足，如河伯之观海，如井蛙之窥天，皆无识者也；有恒则断无不成之事。此三者缺一不可。<br><br>
+                        <strong>【日文意译】</strong> 学問をするためには、第一に意志を持ち、第二に知識を持ち、第三に執念を持つことが必要である。意志があれば、劣ることを厭わず、知識があれば、学問に終わりはないことを知り、あえて一つの利益で満足せず、執念があれば、何事も成し遂げられないことはないでしょう。この3つのうち、1つは欠かせない。
                     </span>
                 </div>
 
                 <div class="quote-author">—— <span class="ja">曽国藩 (Zeng Guofan)</span><span class="zh">曾国藩</span></div>
-                
-                <!-- 精神解读 -->
-                <p style="margin-top: 15px; font-size: 0.95rem; color: #555;">
-                    <span class="ja">当研究室の精神であり、研究活動において学生たちを大いに啓発する言葉です。日々の地道なプログラミングや実験（耕耘）こそが、最終的な革新（収穫）をもたらします。</span>
-                    <span class="zh">这是本研究室的指导精神。在学术探索中，脚踏实地进行每一次编程与实验（耕耘），不急功近利，最终必然会迎来丰硕的学术创新与成果（收获）。</span>
-                </p>
             </div>
-
-            <p style="background: #eef2f5; padding: 15px; border-left: 4px solid var(--secondary-color);">
-                <span class="ja"><strong>📍 研究室訪問日程：</strong> 毎週（月、水曜日）の午後１時半から３時、20-408号室。<br><strong>👨‍🏫 指導教員：</strong> 千代原 善俊 (張)</span>
-                <span class="zh"><strong>📍 访问日程：</strong> 每周一、三下午 1:30 至 3:00，20-408 号室。<br><strong>👨‍🏫 指导教员：</strong> 张 教授 (千代原 善俊)</span>
-            </p>
         </section>
 
-        <!-- 第二版块：完全融合的 6 宫格研究领域 -->
+        <!-- 第二版块：教授简介 (根据 MyLab.pdf 新增) -->
+        <section id="professor">
+            <h2><span class="ja">指導教員紹介</span><span class="zh">指导教员简介</span></h2>
+            <div class="prof-card">
+                <h3 style="color: var(--primary-color); margin-top: 0; border-bottom: 2px solid var(--secondary-color); display: inline-block; padding-bottom: 5px;">
+                    <span class="ja">千代原 善俊 (張) 教授 ・ 工学博士</span>
+                    <span class="zh">张 教授 (千代原 善俊) ・ 工学博士</span>
+                </h3>
+                
+                <p><strong><span class="ja">所属：</span><span class="zh">所属学科：</span></strong>
+                    <span class="ja">計算機科学科 / 先端情報領域プログラム</span>
+                    <span class="zh">计算机科学系 / 尖端信息领域项目</span>
+                </p>
+                <p><strong><span class="ja">略歴：</span><span class="zh">教育与履历：</span></strong>
+                    <span class="ja">華中科学技術大学卒、北海道大学博士課程修了。室蘭工業大学、ボストン大学CNS研究所を経て現職。</span>
+                    <span class="zh">毕业于华中科技大学，修完北海道大学博士课程。曾任职于室兰工业大学、波士顿大学 CNS 研究所，现任本职。</span>
+                </p>
+                <p><strong><span class="ja">研究分野：</span><span class="zh">核心研究领域：</span></strong>
+                    <span class="ja">画像情報処理、視覚情報処理、CG、ニューロサイエンス。</span>
+                    <span class="zh">图像信息处理、视觉信息处理、计算机图形学 (CG)、神经科学。</span>
+                </p>
+                <p><strong><span class="ja">主な研究テーマ：</span><span class="zh">主要研究课题：</span></strong>
+                    <span class="ja">顔認識、情緒認識、異常検出、電子透かし、VR/MR、視線追跡、視覚心理実験。</span>
+                    <span class="zh">人脸识别、情绪识别、异常检测、电子水印、VR/MR、视线追踪、视觉心理实验等。</span>
+                </p>
+
+                <div class="prof-contact">
+                    <p>📧 <strong>E-mail:</strong> <a href="mailto:chiyoz01@kanagawa-u.ac.jp" style="color: var(--primary-color);">chiyoz01@kanagawa-u.ac.jp</a></p>
+                    <p>🚪 <strong><span class="ja">教授室：</span><span class="zh">教授办公室：</span></strong>20-408室 (内線/Ext: 4487)</p>
+                    <p>🖥️ <strong><span class="ja">学生研究室：</span><span class="zh">学生研究室：</span></strong>20-419室 (内線/Ext: 4532)</p>
+                    <p>🔗 <strong>Web:</strong> <a href="https://www.kanagawa-u.ac.jp/professor/details/details_101613.html" target="_blank" style="color: var(--primary-color); word-break: break-all;">https://www.kanagawa-u.ac.jp/professor/details/details_101613.html</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第三版块：完全融合的 6 宫格研究领域 -->
         <section id="research">
             <h2><span class="ja">研究関係 (Research Areas)</span><span class="zh">研究领域 (Research Areas)</span></h2>
             <div class="research-grid">
@@ -232,7 +264,7 @@
             </div>
         </section>
 
-        <!-- 第三版块：课程与毕业要求 -->
+        <!-- 第四版块：课程与毕业要求 -->
         <section id="education">
             <h2><span class="ja">研究の進め方 / 授業関係</span><span class="zh">研究的推进方法</span></h2>
             <ol>
@@ -243,7 +275,7 @@
             </ol>
         </section>
 
-        <!-- 第四版块：寄语 -->
+        <!-- 第五版块：寄语 -->
         <section id="faq">
             <h2><span class="ja">こんな人に来てもらいたい</span><span class="zh">期待这样的你加入</span></h2>
             <ul>
