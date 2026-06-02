@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千代原研究室 - Computer Vision and Image Processing  KU</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --bg-color: #f8f9fa;
+        }
+        body {
+            font-family: 'Helvetica Neue', 'Hiragino Kaku Gothic ProN', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        /* 语言切换控制 */
+        body.ja .zh { display: none; }
+        body.zh .ja { display: none; }
+        
+        /* 头部与标语设计 */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+        }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p.subtitle { font-size: 1.2rem; margin-top: 10px; font-weight: 300; }
+        header p.catchphrase { font-style: italic; color: #bdc3c7; }
+        
+        /* 语言切换按钮 */
+        .lang-switch-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+        .lang-switch-btn:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* 导航栏布局 */
+        nav {
+            background-color: #34495e;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            transition: background 0.3s;
+        }
+        nav a:hover { background-color: var(--secondary-color); }
+        
+        /* 页面内容区块容器 */
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        h2 { color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.5rem; }
+        ul, ol { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight { color: var(--secondary-color); font-weight: bold; }
+        
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body class="ja"> <!-- 默认语言为日语 -->
+
+    <header>
+        <button class="lang-switch-btn" onclick="toggleLanguage()">
+            <span class="ja">中文版</span>
+            <span class="zh">日本語</span>
+        </button>
+        <h1>
+            <span class="ja">千代原研究室 (ビジョン研究室)</span>
+            <span class="zh">千代原研究室 (视觉研究室)</span>
+        </h1>
+        <p class="subtitle">Computer Vision and Image Processing</p>
+        <p class="catchphrase">
+            <span class="ja">「何を見ているか？どうしてこう見えているか？どうやって見るか？」<br>Welcome to vision lab: Boys be ambitious</span>
+            <span class="zh">“我们在看什么？为什么这样看？如何看？”<br>Welcome to vision lab: Boys be ambitious</span>
+        </p>
+    </header>
+
+    <nav>
+        <a href="#about">
+            <span class="ja">最新情報</span><span class="zh">最新动态</span>
+        </a>
+        <a href="#research">
+            <span class="ja">研究関係</span><span class="zh">研究领域</span>
+        </a>
+        <a href="#education">
+            <span class="ja">授業関係</span><span class="zh">课程相关</span>
+        </a>
+        <a href="#members">
+            <span class="ja">研究室メンバー</span><span class="zh">研究室成员</span>
+        </a>
+        <a href="#graduates">
+            <span class="ja">卒業研究関係</span><span class="zh">毕业研究</span>
+        </a>
+        <a href="#faq">
+            <span class="ja">よく聞かれている問題</span><span class="zh">常见问题</span>
+        </a>
+    </nav>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>
+                <span class="ja">最新情報 & 研究のアプローチ</span>
+                <span class="zh">最新动态 & 研究方法</span>
+            </h2>
+            <p>
+                <span class="ja">１）人間の視覚認識の特徴およびメカニズムを実験で検証すること。<br>２）人間の視覚認識のメカニズムに基づき、コンピュータビジョンの手法を用いて、人間の視覚認識活動を補助し、支援するアプリケーションを作成すること。</span>
+                <span class="zh">1）通过实验验证人类视觉识别的特征及机制。<br>2）基于人类视觉识别机制，利用计算机视觉技术，开发辅助人类视觉活动的应用程序。</span>
+            </p>
+            <p>
+                <span class="ja"><strong>📍 研究室訪問日程：</strong> 毎週（月、水曜日）の午後１時半から３時の間、20-408号室にて諸君の質問にお答えします。</span>
+                <span class="zh"><strong>📍 访问日程：</strong> 每周一、三下午 1:30 至 3:00，指导教员在 20-408 号室为大家答疑解惑。</span>
+            </p>
+        </section>
+
+        <section id="research">
+            <h2>
+                <span class="ja">研究関係</span>
+                <span class="zh">研究领域</span>
+            </h2>
+            <p>
+                <span class="ja">画像処理を中心に以下の６つのブロックに分けています：</span>
+                <span class="zh">我们的研究以图像处理为中心，主要分为以下6大模块：</span>
+            </p>
+            <ul>
+                <li><strong><span class="ja">視覚心理実験系：</span><span class="zh">视觉心理实验系：</span></strong> 
+                    <span class="ja">中心窩両眼能動システムにおける注視点シフトの考察、視線運動を用いた個人認証に関する研究など。</span>
+                    <span class="zh">中心窝双眼主动系统的注视点转移、利用视线运动进行个人认证等。</span>
+                </li>
+                <li><strong><span class="ja">医療画像処理系：</span><span class="zh">医疗图像处理系：</span></strong> 
+                    <span class="ja">脳組織のセグメンテーション、X線胸部写真による乳がん検出、医用画像の高速な３次元再構成など。</span>
+                    <span class="zh">脑组织分割、X光胸片乳腺癌检测、医学图像的快速3D重建等。</span>
+                </li>
+                <li><strong><span class="ja">パターン認識系：</span><span class="zh">模式识别系：</span></strong> 
+                    <span class="ja">顔認識、指紋認識、印鑑認識、高速な類似画像検索など。</span>
+                    <span class="zh">人脸识别、指纹识别、印章识别以及高速相似图像检索等。</span>
+                </li>
+                <li><strong><span class="ja">コンピュータビジョン応用系：</span><span class="zh">计算机视觉应用系：</span></strong> 
+                    <span class="ja">画像処理による交通監査、動画像における物体追跡、Kinectを使った手勢認識。ロボットドッグによる熊退治、AIロボットによる老人介護の研究。</span>
+                    <span class="zh">交通监控、移动物体追踪、使用 Kinect 的手势识别。此外，还利用智能机器狗进行防熊/驱熊任务，以及用于老人护理的 AI 机器人研究。</span>
+                </li>
+                <li><strong><span class="ja">電子透かし処理系：</span><span class="zh">电子水印处理系：</span></strong> 
+                    <span class="ja">ウェーブレット変換による画像の電子透かしの研究。</span>
+                    <span class="zh">基于小波变换的图像电子水印研究。</span>
+                </li>
+                <li><strong><span class="ja">CG処理系, MR/VR：</span><span class="zh">CG处理系, MR/VR：</span></strong> 
+                    <span class="ja">仮想整形技術の研究、毛髪シミュレーション、ホロレンズによる防災訓練システムの作成、VRによるリハビリシステム。</span>
+                    <span class="zh">虚拟整形技术、头发模拟、使用 HoloLens 建立防灾训练系统，以及VR康复系统等。</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2>
+                <span class="ja">研究の進め方 / 授業関係</span>
+                <span class="zh">研究的推进方法 / 课程相关</span>
+            </h2>
+            <ol>
+                <li>
+                    <span class="ja">画像処理、コンピュータビジョンの基礎を勉強する。</span>
+                    <span class="zh">学习图像处理、计算机视觉的基础知识。</span>
+                </li>
+                <li>
+                    <span class="ja">OpenCV、OpenGLなどを利用した画像処理プログラムを習得する。</span>
+                    <span class="zh">掌握利用 OpenCV、OpenGL 等工具的图像处理编程。</span>
+                </li>
+                <li>
+                    <span class="ja">コンピュータビジョン・機械学習入門、pythonによる画像処理と深層学習、 ROS2とPythonで作るAIロボットの応用。</span>
+                    <span class="zh">学习计算机视觉与机器学习入门、Python图像处理与深度学习、ROS2与Python在AI机器人中的应用。</span>
+                </li>
+                <li>
+                    <span class="ja">関連文献を購読する。</span>
+                    <span class="zh">阅读相关文献。</span>
+                </li>
+                <li>
+                    <span class="ja">個別の研究に突入する。ゼミは毎週に一回がある。</span>
+                    <span class="zh">进入个人独立研究阶段。每周举行一次研讨会（ゼミ）。</span>
+                </li>
+            </ol>
+        </section>
+
+        <section id="members">
+            <h2>
+                <span class="ja">研究室メンバー</span>
+                <span class="zh">研究室成员</span>
+            </h2>
+            <p>
+                <span class="ja">指導教員：千代原 善俊 (先生の部屋：20-408)</span>
+                <span class="zh">指导教员：千代原 善俊 (教授办公室：20-408)</span>
+            </p>
+            <p>
+                <span class="ja">学生の部屋：20-419室</span>
+                <span class="zh">学生研究室：20-419室</span>
+            </p>
+            <ul>
+                <li><span class="ja">４年生：11名</span><span class="zh">大四学生：11名</span></li>
+                <li><span class="ja">M2：3名</span><span class="zh">硕士二年级 (M2)：3名</span></li>
+                <li><span class="ja">M1：1名</span><span class="zh">硕士一年级 (M1)：1名</span></li>
+                <li><span class="ja">研究生：2名</span><span class="zh">研究生(客座/预科)：2名</span></li>
+            </ul>
+        </section>
+
+        <section id="graduates">
+            <h2>
+                <span class="ja">近年の卒業研究テーマ</span>
+                <span class="zh">近年毕业研究主题</span>
+            </h2>
+            <ul>
+                <li><strong><span class="ja">2025年度：</span><span class="zh">2025年度：</span></strong> 
+                    <span class="ja">YOLOv8にSimAMを適用した道路損傷検出、未来フレーム予測とMarkovGANに基づく映像異常検出手法、HoloLens2とUnityを使った火災避難訓練シミュレーション、深層学習を用いた果物・野菜の鮮度判定 等。</span>
+                    <span class="zh">应用 YOLOv8 的道路损伤检测、基于 DeepFake / MarkovGAN 的视频异常检测、使用 HoloLens2 与 Unity 的火灾避难训练模拟、基于深度学习的果蔬新鲜度判定等。</span>
+                </li>
+                <li><strong><span class="ja">2024年度：</span><span class="zh">2024年度：</span></strong> 
+                    <span class="ja">顔認識技術によるダウン症患者へのアプローチ、深層学習によるトマトの良否判定、Pytorchを用いた3D顔復元 等。</span>
+                    <span class="zh">面向唐氏综合症患者的人脸识别技术、基于深度学习的番茄品质判定、基于 Pytorch 的3D人脸重建等。</span>
+                </li>
+                <li><strong><span class="ja">2023年度：</span><span class="zh">2023年度：</span></strong> 
+                    <span class="ja">ハンドサイン認識によるウェブページ操作プログラムの作成、GANを用いたアニメ風人物画像の生成、CNN-LSTMによる姿勢予測 等。</span>
+                    <span class="zh">手势识别网页操作程序、利用 GAN 生成动漫风人物图像、CNN-LSTM 姿态预测等。</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="faq">
+            <h2>
+                <span class="ja">よく聞かれている問題 (こんな人に来てもらいたい)</span>
+                <span class="zh">常见问题 (期待这样的你加入)</span>
+            </h2>
+            <p>
+                <span class="ja">最後に一言（最初は間違ってもいい）：</span>
+                <span class="zh">教授寄语（一开始犯错也没关系）：</span>
+            </p>
+            <ul>
+                <li><span class="ja highlight">大学院へ進学したい人。</span><span class="zh highlight">有意愿升入大学院（研究生院）深造的人。</span></li>
+                <li><span class="ja highlight">プログラミングに詳しい人。</span><span class="zh highlight">精通编程的人。</span></li>
+                <li><span class="ja highlight">システム管理やネットワーク管理をやってみたい人。</span><span class="zh highlight">想尝试进行系统管理或网络管理的人。</span></li>
+                <li><span class="ja highlight">画像や視覚に興味があり、自分なりの考えがある人。</span><span class="zh highlight">对图像和视觉技术感兴趣，且有自己独特想法的人。</span></li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 
+            <span class="ja">千代原研究室 (Vision Lab). All Rights Reserved.</span>
+            <span class="zh">千代原研究室 (Vision Lab). 保留所有权利。</span>
+        </p>
+    </footer>
+
+    <!-- 语言切换脚本 -->
+    <script>
+        function toggleLanguage() {
+            const body = document.body;
+            if (body.classList.contains('ja')) {
+                body.classList.remove('ja');
+                body.classList.add('zh');
+                document.documentElement.lang = 'zh-CN';
+            } else {
+                body.classList.remove('zh');
+                body.classList.add('ja');
+                document.documentElement.lang = 'ja';
+            }
+        }
+    </script>
+</body>
+</html>
